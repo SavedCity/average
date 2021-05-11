@@ -1,5 +1,7 @@
 # average
 
+Ahmed, Andy
+
 ## User Stories
 
 - As a user I want to click on an article and have a modal pop up.
