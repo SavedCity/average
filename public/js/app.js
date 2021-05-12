@@ -12,6 +12,7 @@ class App extends React.Component {
   handleChange = (event) => {
     this.setState({ [event.target.id]: event.target.value });
   };
+
   handleSubmit = (event) => {
     event.preventDefault();
     axios.post("/articles", this.state).then((response) => {
@@ -67,62 +68,60 @@ class App extends React.Component {
         <h4>where articles become average...</h4>
 
         <h1> Post an article </h1>
+        <div>
+          <form onSubmit={this.handleSubmit}>
+              <input
+              placeholder="Author"
+              type="text"
+              id="author"
+              onChange={this.handleChange}
+              />
+              <br />
 
-      {/* <CreateArticle>
-        handleChange={this.handleChange}
-      </CreateArticle> */}
+              <input
+              placeholder="Title"
+              type="text"
+              id="title"
+              onChange={this.handleChange}
+              />
+              <br />
+
+              <input
+              placeholder="Image"
+              type="text"
+              id="image"
+              onChange={this.handleChange}
+              />
+              <br />
+
+              <textarea
+              placeholder="Article content"
+              type="text"
+              id="content"
+              onChange={this.handleChange}
+              ></textarea>
+              <br />
+
+              <label htmlFor="length">Read Length </label>
+              <input
+              placeholder="4"
+              type="number"
+              id="length"
+              onChange={this.handleChange}
+              min="1"
+              max="60"
+              />
+              <br />
+
+              <input type="submit" value="POST ARTICLE" />
+          </form>
+        </div>
+
         <div className="content-container">
           {this.state.articles.map((article) => {
             return (
               <div key={article._id} className="content">
-                      <div>
-                        <form onSubmit={this.handleSubmit}>
-                                    <input
-                                    placeholder="Author"
-                                    type="text"
-                                    id="author"
-                                    onChange={this.handleChange}
-                                    />
-                                    <br />
 
-                                    <input
-                                    placeholder="Title"
-                                    type="text"
-                                    id="title"
-                                    onChange={this.handleChange}
-                                    />
-                                    <br />
-
-                                    <input
-                                    placeholder="Image"
-                                    type="text"
-                                    id="image"
-                                    onChange={this.handleChange}
-                                    />
-                                    <br />
-
-                                    <textarea
-                                    placeholder="Article content"
-                                    type="text"
-                                    id="content"
-                                    onChange={this.handleChange}
-                                    ></textarea>
-                                    <br />
-
-                                    <label htmlFor="length">Read Length </label>
-                                    <input
-                                    placeholder="4"
-                                    type="number"
-                                    id="length"
-                                    onChange={this.handleChange}
-                                    min="1"
-                                    max="60"
-                                    />
-                                    <br />
-
-                                    <input type="submit" value="POST ARTICLE" />
-                                </form>
-                      </div>
                 <h2> {article.author} </h2>
                 <h2> {article.title} </h2>
                 <img
@@ -139,6 +138,21 @@ class App extends React.Component {
                     ? null
                     : article.length + " min read"}
                 </h4>
+                <div>
+                    <form>
+                      <input
+                        placeholder="Leave a comment"
+                        type="text"
+                        id="comment"
+                        >
+                        </input>
+                        <input
+                          type="submit"
+                          value="Add Comment"
+                          onSubmit
+                        />
+                    </form>
+                </div>
                 <details>
                   <summary> UPDATE </summary>
                   <form id={article._id} onSubmit={this.updateArticle}>
