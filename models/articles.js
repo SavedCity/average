@@ -12,7 +12,7 @@ const articleSchema = new mongoose.Schema(
     content: String,
     length: Number,
     createdBy: String,
-    likeAndDislike: Number,
+    likes: { type: Number, default: 0 },
     comments: String,
   },
   {

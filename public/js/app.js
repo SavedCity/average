@@ -6,6 +6,7 @@ class App extends React.Component {
     content: "",
     length: undefined,
     createdAt: undefined,
+    likes: 0,
     articles: [],
   };
 
@@ -56,8 +57,13 @@ class App extends React.Component {
     });
   };
 
-  dateTime = () => {
-    new Date();
+  likeButton = (event) => {
+    axios.put("/articles/" + event.target.id, this.state).then((response) => {
+      this.setState({
+        articles: response.data,
+        likes: (this.state.likes += 1),
+      });
+    });
   };
 
   render = () => {
@@ -191,7 +197,7 @@ class App extends React.Component {
                   </form>
                 </details>
                 <br />
-                <LikeButton></LikeButton>
+
                 <Comments></Comments>
                 <button onClick={this.deleteArticle} value={article._id}>
                   REMOVE THIS ARTICLE
