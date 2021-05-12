@@ -56,11 +56,15 @@ class App extends React.Component {
     });
   };
 
+  dateTime = () => {
+    new Date();
+  };
+
   render = () => {
     return (
       <div className="react-div-not-to-be-used">
         <h1>Average</h1>
-        <h4>where average your article will become...</h4>
+        <h4>where articles become average...</h4>
 
         <h1> Post an article </h1>
 
@@ -117,10 +121,20 @@ class App extends React.Component {
               <div className="content">
                 <h2> {article.author} </h2>
                 <h2> {article.title} </h2>
-                <img src={article.image} />
+                <img
+                  src={
+                    article.image === ""
+                      ? "https://thumbs.dreamstime.com/b/article-linear-icon-modern-outline-logo-concept-whit-white-background-programming-collection-suitable-use-web-apps-133523925.jpg"
+                      : article.image
+                  }
+                />
                 <h2> {article.content} </h2>
                 <h4> {article.createdAt} </h4>
-                <h4> {article.length} min read</h4>
+                <h4>
+                  {article.length === undefined
+                    ? null
+                    : article.length + " min read"}
+                </h4>
                 <details>
                   <summary> UPDATE </summary>
                   <form id={article._id} onSubmit={this.updateArticle}>
