@@ -68,149 +68,32 @@ class App extends React.Component {
         <h4>where articles become average...</h4>
 
         <h1> Post an article </h1>
-        <div>
-          <form onSubmit={this.handleSubmit}>
-              <input
-              placeholder="Author"
-              type="text"
-              id="author"
-              onChange={this.handleChange}
-              />
-              <br />
-
-              <input
-              placeholder="Title"
-              type="text"
-              id="title"
-              onChange={this.handleChange}
-              />
-              <br />
-
-              <input
-              placeholder="Image"
-              type="text"
-              id="image"
-              onChange={this.handleChange}
-              />
-              <br />
-
-              <textarea
-              placeholder="Article content"
-              type="text"
-              id="content"
-              onChange={this.handleChange}
-              ></textarea>
-              <br />
-
-              <label htmlFor="length">Read Length </label>
-              <input
-              placeholder="4"
-              type="number"
-              id="length"
-              onChange={this.handleChange}
-              min="1"
-              max="60"
-              />
-              <br />
-
-              <input type="submit" value="POST ARTICLE" />
-          </form>
-        </div>
+        <CreateArticle
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+        ></CreateArticle>
 
         <div className="content-container">
           {this.state.articles.map((article) => {
             return (
               <div key={article._id} className="content">
 
-                <h2> {article.author} </h2>
-                <h2> {article.title} </h2>
-                <img
-                  src={
-                    article.image === ""
-                      ? "https://thumbs.dreamstime.com/b/article-linear-icon-modern-outline-logo-concept-whit-white-background-programming-collection-suitable-use-web-apps-133523925.jpg"
-                      : article.image
-                  }
-                />
-                <h2> {article.content} </h2>
-                <h4> {article.createdAt} </h4>
-                <h4>
-                  {article.length === undefined
-                    ? null
-                    : article.length + " min read"}
-                </h4>
-                <div>
-                    <form>
-                      <input
-                        placeholder="Leave a comment"
-                        type="text"
-                        id="comment"
-                        >
-                        </input>
-                        <input
-                          type="submit"
-                          value="Add Comment"
-                          onSubmit
-                        />
-                    </form>
-                </div>
-                <details>
-                  <summary> UPDATE </summary>
-                  <form id={article._id} onSubmit={this.updateArticle}>
-                    <input
-                      placeholder="Author"
-                      value={this.state.author}
-                      type="text"
-                      id="author"
-                      onChange={this.handleChange}
-                    />
-                    <br />
+                <Articles
+                  article={article}
+                ></Articles>
 
-                    <input
-                      placeholder="Title"
-                      value={this.state.title}
-                      type="text"
-                      id="title"
-                      onChange={this.handleChange}
-                    />
-                    <br />
+                <Comments></Comments>
 
-                    <input
-                      placeholder="Image"
-                      value={this.state.image}
-                      type="text"
-                      id="image"
-                      onChange={this.handleChange}
-                    />
-                    <br />
+                <EditArticle
+                  handleChange={this.handleChange}
+                  handleSubmit={this.handleSubmit}
+                  article={article}
+                ></EditArticle>
 
-                    <textarea
-                      placeholder="Article Content"
-                      value={this.state.content}
-                      type="text"
-                      id="content"
-                      onChange={this.handleChange}
-                    ></textarea>
-                    <br />
-
-                    <label htmlFor="length">Read Length </label>
-                    <input
-                      value={this.state.length}
-                      placeholder="4"
-                      type="number"
-                      id="length"
-                      onChange={this.handleChange}
-                      min="1"
-                      max="60"
-                    />
-                    <br />
-
-                    <input type="submit" value="SAVE" />
-                  </form>
-                </details>
-                <br />
-                <button onClick={this.deleteArticle} value={article._id}>
-                  REMOVE THIS ARTICLE
-                </button>
+                <Delete
+                  deleteArticle={this.deleteArticle}
+                  article={article}
+                ></Delete>
               </div>
             );
           })}
