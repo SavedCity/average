@@ -11,6 +11,9 @@ const articleSchema = new mongoose.Schema(
     title: String,
     content: String,
     length: Number,
+    createdBy: String,
+    likeAndDislike: Number,
+    comments: String,
   },
   {
     timestamps: true,
