@@ -86,8 +86,9 @@ class App extends React.Component {
 
                 <EditArticle
                   handleChange={this.handleChange}
-                  handleSubmit={this.handleSubmit}
+                  updateArticle={this.updateArticle}
                   article={article}
+
                 ></EditArticle>
 
                 <Delete
