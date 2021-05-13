@@ -1,10 +1,12 @@
-class CreateArticle extends React.Component {
+class EditArticle extends React.Component {
   render() {
     return (
-      <div>
-        <form onSubmit={this.props.handleSubmit}>
+      <details>
+        <summary> UPDATE </summary>
+        <form id={article.props._id} onSubmit={this.props.updateArticle}>
           <input
             placeholder="Author"
+            value={this.props.state.author}
             type="text"
             id="author"
             onChange={this.props.handleChange}
@@ -13,6 +15,7 @@ class CreateArticle extends React.Component {
 
           <input
             placeholder="Title"
+            value={this.props.state.title}
             type="text"
             id="title"
             onChange={this.props.handleChange}
@@ -21,6 +24,7 @@ class CreateArticle extends React.Component {
 
           <input
             placeholder="Image"
+            value={this.props.state.image}
             type="text"
             id="image"
             onChange={this.props.handleChange}
@@ -28,7 +32,8 @@ class CreateArticle extends React.Component {
           <br />
 
           <textarea
-            placeholder="Article content"
+            placeholder="Article Content"
+            value={this.props.state.content}
             type="text"
             id="content"
             onChange={this.props.handleChange}
@@ -37,6 +42,7 @@ class CreateArticle extends React.Component {
 
           <label htmlFor="length">Read Length </label>
           <input
+            value={this.props.state.length}
             placeholder="4"
             type="number"
             id="length"
@@ -46,9 +52,9 @@ class CreateArticle extends React.Component {
           />
           <br />
 
-          <input type="submit" value="POST ARTICLE" />
+          <input type="submit" value="SAVE" />
         </form>
-      </div>
+      </details>
     );
   }
 }

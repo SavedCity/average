@@ -13,6 +13,7 @@ class App extends React.Component {
   handleChange = (event) => {
     this.setState({ [event.target.id]: event.target.value });
   };
+
   handleSubmit = (event) => {
     event.preventDefault();
     axios.post("/articles", this.state).then((response) => {
@@ -72,55 +73,10 @@ class App extends React.Component {
         <h1>Average</h1>
         <h4>where articles become average...</h4>
 
-        <h1> Post an article </h1>
-        <div>
-          <form onSubmit={this.handleSubmit}>
-            <input
-              placeholder="Author"
-              type="text"
-              id="author"
-              onChange={this.handleChange}
-            />
-            <br />
-
-            <input
-              placeholder="Title"
-              type="text"
-              id="title"
-              onChange={this.handleChange}
-            />
-            <br />
-
-            <input
-              placeholder="Image"
-              type="text"
-              id="image"
-              onChange={this.handleChange}
-            />
-            <br />
-
-            <textarea
-              placeholder="Article content"
-              type="text"
-              id="content"
-              onChange={this.handleChange}
-            ></textarea>
-            <br />
-
-            <label htmlFor="length">Read Length </label>
-            <input
-              placeholder="4"
-              type="number"
-              id="length"
-              onChange={this.handleChange}
-              min="1"
-              max="60"
-            />
-            <br />
-
-            <input type="submit" value="POST ARTICLE" />
-          </form>
-        </div>
+        <CreateArticle
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+        />
 
         <div className="content-container">
           {this.state.articles.map((article) => {
@@ -142,63 +98,24 @@ class App extends React.Component {
                     ? null
                     : article.length + " min read"}
                 </h4>
-                <details>
-                  <summary> UPDATE </summary>
-                  <form id={article._id} onSubmit={this.updateArticle}>
+                <div>
+                  <form>
                     <input
-                      placeholder="Author"
-                      value={this.state.author}
+                      placeholder="Leave a comment"
                       type="text"
-                      id="author"
-                      onChange={this.handleChange}
-                    />
-                    <br />
-
-                    <input
-                      placeholder="Title"
-                      value={this.state.title}
-                      type="text"
-                      id="title"
-                      onChange={this.handleChange}
-                    />
-                    <br />
-
-                    <input
-                      placeholder="Image"
-                      value={this.state.image}
-                      type="text"
-                      id="image"
-                      onChange={this.handleChange}
-                    />
-                    <br />
-
-                    <textarea
-                      placeholder="Article Content"
-                      value={this.state.content}
-                      type="text"
-                      id="content"
-                      onChange={this.handleChange}
-                    ></textarea>
-                    <br />
-
-                    <label htmlFor="length">Read Length </label>
-                    <input
-                      value={this.state.length}
-                      placeholder="4"
-                      type="number"
-                      id="length"
-                      onChange={this.handleChange}
-                      min="1"
-                      max="60"
-                    />
-                    <br />
-
-                    <input type="submit" value="SAVE" />
+                      id="comment"
+                    ></input>
+                    <input type="submit" value="Add Comment" />
                   </form>
-                </details>
+                </div>
+
+                <EditArticle
+                  onChange={this.handleChange}
+                  article={this.state.articles}
+                />
+
                 <br />
 
-                <Comments></Comments>
                 <button onClick={this.deleteArticle} value={article._id}>
                   REMOVE THIS ARTICLE
                 </button>
