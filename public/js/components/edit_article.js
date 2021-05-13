@@ -6,7 +6,6 @@ class EditArticle extends React.Component {
                   <form id={this.props.article._id} onSubmit={this.props.updateArticle}>
                     <input
                       placeholder="Author"
-                      value={this.props.article.author}
                       type="text"
                       id="author"
                       onChange={this.props.handleChange}
@@ -15,7 +14,6 @@ class EditArticle extends React.Component {
 
                     <input
                       placeholder="Title"
-                      value={this.props.article.title}
                       type="text"
                       id="title"
                       onChange={this.props.handleChange}
@@ -24,7 +22,6 @@ class EditArticle extends React.Component {
 
                     <input
                       placeholder="Image"
-                      value={this.props.article.image}
                       type="text"
                       id="image"
                       onChange={this.props.handleChange}
@@ -33,7 +30,6 @@ class EditArticle extends React.Component {
 
                     <textarea
                       placeholder="Article Content"
-                      value={this.props.article.content}
                       type="text"
                       id="content"
                       onChange={this.props.handleChange}
@@ -42,7 +38,6 @@ class EditArticle extends React.Component {
 
                     <label htmlFor="length">Read Length </label>
                     <input
-                      value={this.props.article.length}
                       placeholder="4"
                       type="number"
                       id="length"
