@@ -3,29 +3,6 @@ const express = require('express')
 const sessions = express.Router()
 const User = require('../models/users.js')
 
-sessions.get('/', (req, res) => {
-    if (!req.session.currentUser) {
-        res.render(
-        'sessions/home.ejs',
-        {
-            currentUser: req.session.currentUser
-        }
-    )
-    } else {
-        res.redirect('/projects')
-    }
-
-})
-
-sessions.get('/new', (req, res) => {
-    res.render(
-        'sessions/new.ejs',
-        {
-            currentUser: req.session.currentUser
-        }
-    )
-})
-
 sessions.post('/', (req, res) => {
     User.findOne(
         {
@@ -39,7 +16,7 @@ sessions.post('/', (req, res) => {
         } else {
             if (bcrypt.compareSync(req.body.password, foundUser.password)) {
             req.session.currentUser = foundUser
-            res.redirect('/projects')
+            res.redirect('/')
             } else {
             res.send('<a href="/"> password does not match </a>')
             }

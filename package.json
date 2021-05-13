@@ -18,8 +18,10 @@
   },
   "homepage": "https://github.com/a-osm/average#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "dotenv": "^9.0.2",
     "express": "^4.17.1",
+    "express-session": "^1.17.1",
     "moment": "^2.29.1",
     "mongoose": "^5.12.8"
   }
