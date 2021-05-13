@@ -64,7 +64,7 @@ class App extends React.Component {
   render = () => {
     return (
       <div className="react-div-not-to-be-used">
-        <h1>Average</h1>
+        <h2>Average</h2>
         <h4>where articles become average...</h4>
 
         <h1> Post an article </h1>
