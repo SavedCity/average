@@ -1,6 +1,6 @@
 const express = require("express");
 const articles = express.Router();
-const Article = require("../models/articles.js");
+const Article = require("../models/articles-schema.js");
 
 articles.get("/", (req, res) => {
   Article.find({}, (err, foundArticles) => {

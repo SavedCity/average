@@ -6,7 +6,7 @@ class App extends React.Component {
     content: "",
     length: undefined,
     createdAt: undefined,
-    likes: 0,
+    likes: undefined,
     articles: [],
   };
 
@@ -61,22 +61,28 @@ class App extends React.Component {
   render = () => {
     return (
       <div className="react-div-not-to-be-used">
-        <h2>Average</h2>
-        <h4>where articles become average...</h4>
-
+        <div className="nav">
+          <h2>Average</h2>
+          <div className="loggin">
+            <SignUp></SignUp>
+            <SignIn></SignIn>
+          </div>
+        </div>
         <h1> Post an article </h1>
         <CreateArticle
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
         ></CreateArticle>
-
         <div className="main-container">
           {this.state.articles.map((article) => {
             return (
               <div key={article._id} className="content-container">
                 <Articles article={article}></Articles>
 
-                <LikeButton></LikeButton>
+                <LikeButton
+                  article={article}
+                  updateLike={this.updateLike}
+                ></LikeButton>
 
                 <Comments></Comments>
 

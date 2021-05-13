@@ -5,6 +5,7 @@ class EditArticle extends React.Component {
         <summary> UPDATE </summary>
         <form id={this.props.article._id} onSubmit={this.props.updateArticle}>
           <input
+            required
             placeholder="Author"
             type="text"
             id="author"
@@ -13,6 +14,7 @@ class EditArticle extends React.Component {
           <br />
 
           <input
+            required
             placeholder="Title"
             type="text"
             id="title"
@@ -29,6 +31,7 @@ class EditArticle extends React.Component {
           <br />
 
           <textarea
+            required
             placeholder="Article Content"
             type="text"
             id="content"
@@ -38,6 +41,7 @@ class EditArticle extends React.Component {
 
           <label htmlFor="length">Read Length </label>
           <input
+            required
             placeholder="4"
             type="number"
             id="length"

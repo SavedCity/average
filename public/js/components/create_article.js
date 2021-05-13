@@ -4,6 +4,7 @@ class CreateArticle extends React.Component {
       <div>
         <form onSubmit={this.props.handleSubmit}>
           <input
+            required
             placeholder="Author"
             type="text"
             id="author"
@@ -12,6 +13,7 @@ class CreateArticle extends React.Component {
           <br />
 
           <input
+            required
             placeholder="Title"
             type="text"
             id="title"
@@ -28,6 +30,7 @@ class CreateArticle extends React.Component {
           <br />
 
           <textarea
+            required
             placeholder="Article content"
             type="text"
             id="content"
@@ -37,6 +40,7 @@ class CreateArticle extends React.Component {
 
           <label htmlFor="length">Read Length </label>
           <input
+            required
             placeholder="4"
             type="number"
             id="length"
