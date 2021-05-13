@@ -58,67 +58,38 @@ class App extends React.Component {
     });
   };
 
-  likeButton = (event) => {
-    axios.put("/articles/" + event.target.id, this.state).then((response) => {
-      this.setState({
-        articles: response.data,
-        likes: (this.state.likes += 1),
-      });
-    });
-  };
-
   render = () => {
     return (
       <div className="react-div-not-to-be-used">
         <h1>Average</h1>
         <h4>where articles become average...</h4>
 
+        <h1> Post an article </h1>
         <CreateArticle
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
-        />
+        ></CreateArticle>
 
-        <div className="content-container">
+        <div className="main-container">
           {this.state.articles.map((article) => {
             return (
-              <div key={article._id} className="content">
-                <h2> {article.author} </h2>
-                <h2> {article.title} </h2>
-                <img
-                  src={
-                    article.image === ""
-                      ? "https://thumbs.dreamstime.com/b/article-linear-icon-modern-outline-logo-concept-whit-white-background-programming-collection-suitable-use-web-apps-133523925.jpg"
-                      : article.image
-                  }
-                />
-                <h2> {article.content} </h2>
-                <h4> {article.createdAt} </h4>
-                <h4>
-                  {article.length === undefined
-                    ? null
-                    : article.length + " min read"}
-                </h4>
-                <div>
-                  <form>
-                    <input
-                      placeholder="Leave a comment"
-                      type="text"
-                      id="comment"
-                    ></input>
-                    <input type="submit" value="Add Comment" />
-                  </form>
-                </div>
+              <div key={article._id} className="content-container">
+                <Articles article={article}></Articles>
+
+                <LikeButton></LikeButton>
+
+                <Comments></Comments>
 
                 <EditArticle
-                  onChange={this.handleChange}
-                  article={this.state.articles}
-                />
+                  updateArticle={this.updateArticle}
+                  handleChange={this.handleChange}
+                  article={article}
+                ></EditArticle>
 
-                <br />
-
-                <button onClick={this.deleteArticle} value={article._id}>
-                  REMOVE THIS ARTICLE
-                </button>
+                <Delete
+                  deleteArticle={this.deleteArticle}
+                  article={article}
+                ></Delete>
               </div>
             );
           })}

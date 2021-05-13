@@ -1,11 +1,11 @@
 class LikeButton extends React.Component {
   state = {
-    likes: 0,
+    likes: false,
   };
 
   likeArticle = (event) => {
     this.setState({
-      like: (this.state.likes += 1),
+      like: !this.state.likes,
     });
   };
 
