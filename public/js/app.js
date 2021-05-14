@@ -6,6 +6,7 @@ class App extends React.Component {
     content: "",
     length: undefined,
     createdAt: undefined,
+    likes: undefined,
     articles: [],
   };
 
@@ -57,44 +58,43 @@ class App extends React.Component {
     });
   };
 
-  dateTime = () => {
-    new Date();
-  };
-
   render = () => {
     return (
       <div className="react-div-not-to-be-used">
-        <h2>Average</h2>
-        <h4>where articles become average...</h4>
-
+        <div className="nav">
+          <img
+            className="top-logo-pic"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/OOjs_UI_icon_article-rtl-progressive.svg/1200px-OOjs_UI_icon_article-rtl-progressive.svg.png"
+          />
+          <h2 className="top-logo">Average</h2>
+          <div className="loggin">
+            <SignUp></SignUp>
+            <SignIn></SignIn>
+          </div>
+        </div>
         <h1> Post an article </h1>
         <CreateArticle
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
         ></CreateArticle>
-
-        <div className="content-container">
+        <div className="main-container">
           {this.state.articles.map((article) => {
             return (
-              <div key={article._id} className="content">
+              <div key={article._id} className="content-container">
+                <Articles article={article}></Articles>
 
-                <Articles
+                <LikeButton
                   article={article}
-                ></Articles>
+                  updateLike={this.updateLike}
+                ></LikeButton>
 
                 <Comments></Comments>
 
                 <EditArticle
-                  handleChange={this.handleChange}
                   updateArticle={this.updateArticle}
+                  handleChange={this.handleChange}
                   article={article}
-
                 ></EditArticle>
-
-                <Delete
-                  deleteArticle={this.deleteArticle}
-                  article={article}
-                ></Delete>
               </div>
             );
           })}

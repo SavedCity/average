@@ -1,55 +1,71 @@
 class EditArticle extends React.Component {
   render() {
     return (
-        <details>
-                  <summary> UPDATE </summary>
-                  <form id={this.props.article._id} onSubmit={this.props.updateArticle}>
-                    <input
-                      placeholder="Author"
-                      type="text"
-                      id="author"
-                      onChange={this.props.handleChange}
-                    />
-                    <br />
+      <details className="edit-details">
+        <summary> TOGGLE MODIFY </summary>
+        <form id={this.props.article._id} onSubmit={this.props.updateArticle}>
+          <input
+            className="edit-inputs"
+            required
+            placeholder="Author"
+            type="text"
+            id="author"
+            onChange={(event) => {
+              this.setState({ author: event.target.value });
+            }}
+          />
+          <br />
 
-                    <input
-                      placeholder="Title"
-                      type="text"
-                      id="title"
-                      onChange={this.props.handleChange}
-                    />
-                    <br />
+          <input
+            className="edit-inputs"
+            required
+            placeholder="Title"
+            type="text"
+            id="title"
+            onChange={this.props.handleChange}
+          />
+          <br />
 
-                    <input
-                      placeholder="Image"
-                      type="text"
-                      id="image"
-                      onChange={this.props.handleChange}
-                    />
-                    <br />
+          <input
+            className="edit-inputs"
+            placeholder="Image"
+            type="text"
+            id="image"
+            onChange={this.props.handleChange}
+          />
+          <br />
 
-                    <textarea
-                      placeholder="Article Content"
-                      type="text"
-                      id="content"
-                      onChange={this.props.handleChange}
-                    ></textarea>
-                    <br />
+          <textarea
+            className="edit-content"
+            required
+            placeholder="Article Content"
+            type="text"
+            id="content"
+            onChange={this.props.handleChange}
+          ></textarea>
 
-                    <label htmlFor="length">Read Length </label>
-                    <input
-                      placeholder="4"
-                      type="number"
-                      id="length"
-                      onChange={this.props.handleChange}
-                      min="1"
-                      max="60"
-                    />
-                    <br />
+          <input
+            className="edit-inputs"
+            required
+            placeholder="MIN READ"
+            type="number"
+            id="length"
+            onChange={this.props.handleChange}
+            min="1"
+            max="60"
+          />
+          <br />
 
-                    <input type="submit" value="SAVE" />
-                  </form>
-                </details>
-    )
+          <input className="save-edit" type="submit" value="SAVE" />
+        </form>
+        <button
+          className="delete-btn"
+          onClick={this.props.deleteArticle}
+          value={this.props.article._id}
+        >
+          REMOVE THIS ARTICLE
+        </button>
+      </details>
+    );
   }
 }

@@ -2,17 +2,17 @@ const mongoose = require("mongoose");
 
 const articleSchema = new mongoose.Schema(
   {
-    author: String,
+    author: { type: String, required: true },
     image: {
       type: String,
       default:
         "https://thumbs.dreamstime.com/b/article-linear-icon-modern-outline-logo-concept-whit-white-background-programming-collection-suitable-use-web-apps-133523925.jpg",
     },
-    title: String,
-    content: String,
+    title: { type: String, required: true },
+    content: { type: String, required: true },
     length: Number,
     createdBy: String,
-    likeAndDislike: Number,
+    likes: [{ type: Number }],
     comments: String,
   },
   {
