@@ -86,11 +86,12 @@ main {
   text-align: center;
   color: #000;
   font-family: acme;
-  background: #0002;
+  background: #0001;
   list-style: none;
   cursor: pointer;
   border-radius: 3px;
   padding: 6px 0;
+  border: 1.2px solid;
 }
 
 .signup-title:hover {
@@ -319,7 +320,6 @@ main {
   font-weight: 100;
   /* background: #028; */
   color: #fff;
-  letter-spacing: 4px;
 }
 
 .edit-details[open] {

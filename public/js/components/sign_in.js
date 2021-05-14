@@ -3,7 +3,7 @@ class SignIn extends React.Component {
     return (
       <div>
         <h2 className="signin-title"> SIGN IN </h2>
-        <form action="/sessions" method="POST">
+        <form onSubmit={this.props.signIn}>
           <div className="signin-container">
             <label htmlFor="username"></label>
             <input
@@ -12,6 +12,8 @@ class SignIn extends React.Component {
               type="text"
               name="username"
               required
+              onChange={this.props.handleChange}
+              id="username"
             />
 
             <label htmlFor="password"></label>
@@ -21,6 +23,8 @@ class SignIn extends React.Component {
               name="password"
               placeholder="PASSWORD"
               required
+              onChange={this.props.handleChange}
+              id="password"
             />
 
             <input className="signin-button" type="submit" value="LOG IN" />

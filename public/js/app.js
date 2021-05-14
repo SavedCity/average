@@ -30,10 +30,11 @@ class App extends React.Component {
 
   updateArticle = (event) => {
     event.preventDefault();
+    this.setState({ author: document.getElementById("edit-author").innerHTML });
     axios.put("/articles/" + event.target.id, this.state).then((response) => {
       this.setState({
         articles: response.data,
-        author: "",
+        // author: "",
         title: "",
         image: "",
         content: "",
@@ -50,17 +51,32 @@ class App extends React.Component {
     });
   };
 
+  signIn = (event) => {
+    event.preventDefault();
+    axios.post("/sessions", this.state).then((response) => {
+      this.setState({
+        currentUser: response.data,
+      });
+    });
+    // console.log(this.state.currentUser);
+  };
+
   componentDidMount = () => {
     axios.get("/articles").then((response) => {
       this.setState({
         articles: response.data,
+        currentUser: {},
       });
     });
+    // console.log(this.children);
   };
 
   render = () => {
     return (
       <div className="react-div-not-to-be-used">
+        {this.state.currentUser.username ? (
+          <h1>{this.state.currentUser.username}</h1>
+        ) : null}
         <div className="nav">
           <img
             className="top-logo-pic"
@@ -70,7 +86,10 @@ class App extends React.Component {
           <div className="loggin">
             <details className="sign-modal">
               <summary className="modal-button">TOGGLE SIGN IN/SIGN UP</summary>
-              <SignIn></SignIn>
+              <SignIn
+                handleChange={this.handleChange}
+                signIn={this.signIn}
+              ></SignIn>
               <SignUp></SignUp>
             </details>
           </div>

@@ -9,10 +9,9 @@ class EditArticle extends React.Component {
             required
             placeholder="Author"
             type="text"
-            id="author"
-            onChange={(event) => {
-              this.setState({ author: event.target.value });
-            }}
+            id="edit-author"
+            onChange={this.props.handleChange}
+            defaultValue={this.props.article.author}
           />
           <br />
 
@@ -23,6 +22,7 @@ class EditArticle extends React.Component {
             type="text"
             id="title"
             onChange={this.props.handleChange}
+            defaultValue={this.props.article.title}
           />
           <br />
 
@@ -32,6 +32,7 @@ class EditArticle extends React.Component {
             type="text"
             id="image"
             onChange={this.props.handleChange}
+            defaultValue={this.props.article.image}
           />
           <br />
 
@@ -42,6 +43,7 @@ class EditArticle extends React.Component {
             type="text"
             id="content"
             onChange={this.props.handleChange}
+            defaultValue={this.props.article.content}
           ></textarea>
 
           <input
@@ -53,6 +55,7 @@ class EditArticle extends React.Component {
             onChange={this.props.handleChange}
             min="1"
             max="60"
+            defaultValue={this.props.article.length}
           />
           <br />
 
