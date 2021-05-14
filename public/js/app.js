@@ -68,8 +68,11 @@ class App extends React.Component {
           />
           <h2 className="top-logo">Average</h2>
           <div className="loggin">
-            <SignUp></SignUp>
-            <SignIn></SignIn>
+            <details className="sign-modal">
+              <summary className="modal-button">TOGGLE SIGN IN/SIGN UP</summary>
+              <SignUp></SignUp>
+              <SignIn></SignIn>
+            </details>
           </div>
         </div>
         <h1> Post an article </h1>

@@ -2,7 +2,7 @@ class EditArticle extends React.Component {
   render() {
     return (
       <details className="edit-details">
-        <summary> TOGGLE MODIFY </summary>
+        <summary className="edit-summary"> TOGGLE MODIFY </summary>
         <form id={this.props.article._id} onSubmit={this.props.updateArticle}>
           <input
             className="edit-inputs"
