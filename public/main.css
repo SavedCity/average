@@ -136,9 +136,12 @@ main {
   font-size: 25px;
   resize: none;
   border-radius: 3px;
-  border: 1px solid;
+  border: 2px solid #0008;
   margin: 0;
   outline-color: black;
+}
+.comment-input:hover {
+  border: 2px solid #000;
 }
 
 .comment-submit {
@@ -177,7 +180,7 @@ main {
 .edit-details[open] {
   /* position: fixed; */
   background: #fff;
-  padding: 8% 40%;
+  padding: 8% 30%;
   content: none;
   background: #f9ce00;
   color: #000;
@@ -203,7 +206,7 @@ summary {
 }
 
 summary:hover {
-  background: #484848;
+  background: #111;
 }
 
 .edit-inputs {
@@ -213,8 +216,11 @@ summary:hover {
   font-family: teko;
   font-size: 20px;
   border-radius: 3px;
-  border: 1px solid;
+  border: 1px solid #000;
   outline-color: black;
+}
+.edit-inputs:hover {
+  border: 1px solid #0008;
 }
 
 .edit-content {
@@ -227,12 +233,15 @@ summary:hover {
   font-family: teko;
   font-size: 20px;
   border-radius: 3px;
-  border: 1px solid;
+  border: 1px solid #000;
   outline-color: black;
+}
+.edit-content:hover {
+  border: 1px solid #0008;
 }
 
 .save-edit {
-  width: 300px;
+  width: 100%;
   height: 40px;
   background: #049;
   color: white;
@@ -243,7 +252,11 @@ summary:hover {
   margin-top: 12px;
 }
 .save-edit:hover {
-  background: #04f;
+  background: #04b;
+}
+
+input[type="number"]::inner-spin-button {
+  appearance: none;
 }
 
 /* ======================== DELETE ARTICLE ================================== */
@@ -259,7 +272,8 @@ summary:hover {
   font-family: teko;
   font-size: 24px;
   padding: 0px 10px 10px 10px;
+  margin-top: 5px;
 }
 .delete-btn:hover {
-  background: #f32a22;
+  background: #d32a22;
 }

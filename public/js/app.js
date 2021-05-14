@@ -95,11 +95,6 @@ class App extends React.Component {
                   handleChange={this.handleChange}
                   article={article}
                 ></EditArticle>
-
-                <Delete
-                  deleteArticle={this.deleteArticle}
-                  article={article}
-                ></Delete>
               </div>
             );
           })}

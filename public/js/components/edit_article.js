@@ -2,7 +2,7 @@ class EditArticle extends React.Component {
   render() {
     return (
       <details className="edit-details">
-        <summary> TOGGLE EDIT </summary>
+        <summary> TOGGLE MODIFY </summary>
         <form id={this.props.article._id} onSubmit={this.props.updateArticle}>
           <input
             className="edit-inputs"
@@ -10,7 +10,9 @@ class EditArticle extends React.Component {
             placeholder="Author"
             type="text"
             id="author"
-            onChange={this.props.handleChange}
+            onChange={(event) => {
+              this.setState({ author: event.target.value });
+            }}
           />
           <br />
 
@@ -56,6 +58,13 @@ class EditArticle extends React.Component {
 
           <input className="save-edit" type="submit" value="SAVE" />
         </form>
+        <button
+          className="delete-btn"
+          onClick={this.props.deleteArticle}
+          value={this.props.article._id}
+        >
+          REMOVE THIS ARTICLE
+        </button>
       </details>
     );
   }
