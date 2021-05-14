@@ -1,5 +1,8 @@
 {
   "name": "average",
+  "engines": {
+    "node": "15.12.0"
+  },
   "version": "1.0.0",
   "description": "## User Stories",
   "main": "server.js",
