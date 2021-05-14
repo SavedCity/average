@@ -19,7 +19,7 @@ class Articles extends React.Component {
             className="img"
             src={
               this.props.article.image === ""
-                ? "https://thumbs.dreamstime.com/b/article-linear-icon-modern-outline-logo-concept-whit-white-background-programming-collection-suitable-use-web-apps-133523925.jpg"
+                ? "https://itergy.com/wp-content/uploads/2019/07/document-logo.png"
                 : this.props.article.image
             }
           />

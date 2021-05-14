@@ -1,10 +1,11 @@
 class EditArticle extends React.Component {
   render() {
     return (
-      <details>
-        <summary> UPDATE </summary>
+      <details className="edit-details">
+        <summary> TOGGLE EDIT </summary>
         <form id={this.props.article._id} onSubmit={this.props.updateArticle}>
           <input
+            className="edit-inputs"
             required
             placeholder="Author"
             type="text"
@@ -14,6 +15,7 @@ class EditArticle extends React.Component {
           <br />
 
           <input
+            className="edit-inputs"
             required
             placeholder="Title"
             type="text"
@@ -23,6 +25,7 @@ class EditArticle extends React.Component {
           <br />
 
           <input
+            className="edit-inputs"
             placeholder="Image"
             type="text"
             id="image"
@@ -31,18 +34,18 @@ class EditArticle extends React.Component {
           <br />
 
           <textarea
+            className="edit-content"
             required
             placeholder="Article Content"
             type="text"
             id="content"
             onChange={this.props.handleChange}
           ></textarea>
-          <br />
 
-          <label htmlFor="length">Read Length </label>
           <input
+            className="edit-inputs"
             required
-            placeholder="4"
+            placeholder="MIN READ"
             type="number"
             id="length"
             onChange={this.props.handleChange}
@@ -51,7 +54,7 @@ class EditArticle extends React.Component {
           />
           <br />
 
-          <input type="submit" value="SAVE" />
+          <input className="save-edit" type="submit" value="SAVE" />
         </form>
       </details>
     );

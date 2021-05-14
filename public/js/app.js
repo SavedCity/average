@@ -62,7 +62,11 @@ class App extends React.Component {
     return (
       <div className="react-div-not-to-be-used">
         <div className="nav">
-          <h2>Average</h2>
+          <img
+            className="top-logo-pic"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/OOjs_UI_icon_article-rtl-progressive.svg/1200px-OOjs_UI_icon_article-rtl-progressive.svg.png"
+          />
+          <h2 className="top-logo">Average</h2>
           <div className="loggin">
             <SignUp></SignUp>
             <SignIn></SignIn>

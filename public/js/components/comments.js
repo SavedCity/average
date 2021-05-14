@@ -1,25 +1,20 @@
 class Comments extends React.Component {
   render() {
     return (
-                <div>
-                    <form>
-                      <input
-                        placeholder="Leave a comment"
-                        type="text"
-                        id="comment"
-                        >
-                        </input>
-                        <input
-                        type="text"
-                        id="name"
-                        placeholder="enter your name"
-                        />
-                        <input
-                          type="submit"
-                          value="Add Comment"
-                        />
-                    </form>
-                </div>
-    )
+      <div className="comment-container">
+        <form>
+          <div className="comment-div">
+            <textarea
+              className="comment-input"
+              placeholder="Leave a comment"
+              type="text"
+              id="comment"
+              required
+            ></textarea>
+            <input className="comment-submit" type="submit" value="COMMENT" />
+          </div>
+        </form>
+      </div>
+    );
   }
 }

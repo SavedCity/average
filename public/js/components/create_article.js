@@ -14,10 +14,11 @@ class CreateArticle extends React.Component {
 
           <input
             required
-            placeholder="Title"
+            placeholder="TITLE (35-70 CHARS)"
             type="text"
             id="title"
             onChange={this.props.handleChange}
+            pattern="[A-Za-z0-9\s\W+]{35,70}"
           />
           <br />
 
@@ -31,10 +32,11 @@ class CreateArticle extends React.Component {
 
           <textarea
             required
-            placeholder="Article content"
+            placeholder="ARTICLE CONTENT"
             type="text"
             id="content"
             onChange={this.props.handleChange}
+            pattern="[A-Za-z0-9\s\W+]{35,70}"
           ></textarea>
           <br />
 
