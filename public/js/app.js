@@ -70,8 +70,8 @@ class App extends React.Component {
           <div className="loggin">
             <details className="sign-modal">
               <summary className="modal-button">TOGGLE SIGN IN/SIGN UP</summary>
-              <SignUp></SignUp>
               <SignIn></SignIn>
+              <SignUp></SignUp>
             </details>
           </div>
         </div>
