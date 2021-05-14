@@ -94,6 +94,7 @@ class App extends React.Component {
                 <Comments></Comments>
 
                 <EditArticle
+                  deleteArticle={this.deleteArticle}
                   updateArticle={this.updateArticle}
                   handleChange={this.handleChange}
                   article={article}

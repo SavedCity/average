@@ -319,7 +319,7 @@ main {
   font-weight: 100;
   /* background: #028; */
   color: #fff;
-  letter-spacing: 1px;
+  letter-spacing: 4px;
 }
 
 .edit-details[open] {
