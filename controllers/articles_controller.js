@@ -1,6 +1,7 @@
 const express = require("express");
 const articles = express.Router();
 const Article = require("../models/articles-schema.js");
+const Comment = require("../models/comments-schema.js")
 
 articles.get("/", (req, res) => {
   Article.find({}, (err, foundArticles) => {

@@ -13,7 +13,7 @@ const articleSchema = new mongoose.Schema(
     length: Number,
     createdBy: String,
     likes: [{ type: Number }],
-    comments: { type: String },
+    comments: [],
   },
   {
     timestamps: true,
