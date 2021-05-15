@@ -42,6 +42,17 @@ class App extends React.Component {
     });
   };
 
+updateStateForSubmit = (event) => {
+    console.log(event.target.nextSibling.firstChild.nextSibling.getAttribute('value'))
+    this.setState({
+      author: event.target.nextSibling.firstChild.nextSibling.nextSibling.getAttribute('value'),
+      image:
+        event.target.nextSibling.firstChild.nextSibling.nextSibling.nextSibling
+          .nextSibling.nextSibling.value,
+    },
+    )
+  }
+
   deleteArticle = (event) => {
     axios.delete("/articles/" + event.target.value).then((response) => {
       this.setState({
@@ -57,6 +68,18 @@ class App extends React.Component {
       });
     });
   };
+
+  addComment = (event) => {
+    event.preventDefault();
+    // event.currentTarget.reset();
+    const id = event.target.articleId;
+    axios.get("/posts/" + id, this.state).then((response) => {
+    // console.log(response);
+      this.setState({
+        comments: response.data
+      });
+    });
+  }
 
   render = () => {
     return (
@@ -91,9 +114,14 @@ class App extends React.Component {
                   updateLike={this.updateLike}
                 ></LikeButton>
 
-                <Comments></Comments>
+                <Comments
+                  articleid={article._id}
+                  handleChange={this.handleChange}
+                  addComment={this.addComment}
+                ></Comments>
 
                 <EditArticle
+                  updateStateForSubmit={this.updateStateForSubmit}
                   deleteArticle={this.deleteArticle}
                   updateArticle={this.updateArticle}
                   handleChange={this.handleChange}
