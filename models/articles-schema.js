@@ -12,7 +12,7 @@ const articleSchema = new mongoose.Schema(
     content: { type: String, required: true },
     length: Number,
     createdBy: String,
-    likes: [{ type: Number }],
+    likes: [{ type: Number }], // should be empty array
     comments: [],
   },
   {

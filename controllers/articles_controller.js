@@ -17,6 +17,16 @@ articles.post("/", (req, res) => {
   });
 });
 
+articles.get("/:id", (req, res) => {
+  Article.findById(
+    req.params.id, (err, foundArticle) => {
+      foundArticle.comments.push(req.body.comment)
+      foundArticle.save()
+      res.json(foundArticle)
+    }
+  )
+})
+
 articles.put("/:id", (req, res) => {
   Article.findByIdAndUpdate(
     req.params.id,
