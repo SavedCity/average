@@ -7,12 +7,12 @@ class SignUp extends React.Component {
           <form action="/users" method="POST">
             <div className="signup-div">
               <input
-                placeholder="USERNAME (2-16 Chars)"
+                placeholder="USERNAME (6-16 Chars)"
                 className="signup-inputs"
                 type="text"
                 name="username"
                 required
-                pattern="[A-Za-z\s]{2,16}"
+                pattern="[A-Za-z\s]{6,16}"
               />
               <input
                 className="signup-inputs"

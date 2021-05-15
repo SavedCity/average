@@ -60,6 +60,15 @@ class App extends React.Component {
     });
     // console.log(this.state.currentUser);
   };
+  signUp = (event) => {
+    event.preventDefault();
+    axios.post("/users", this.state).then((response) => {
+      this.setState({
+        currentUser: response.data,
+      });
+    });
+    // console.log(this.state.currentUser);
+  };
 
   componentDidMount = () => {
     axios.get("/articles").then((response) => {
@@ -68,15 +77,12 @@ class App extends React.Component {
         currentUser: {},
       });
     });
-    // console.log(this.children);
   };
-
+  // {this.state.currentUser.username !== {}} ? (
+  // <h1> Welcome {this.state.currentUser.username} </h1>) : null}
   render = () => {
     return (
       <div className="react-div-not-to-be-used">
-        {this.state.currentUser.username ? (
-          <h1>{this.state.currentUser.username}</h1>
-        ) : null}
         <div className="nav">
           <img
             className="top-logo-pic"
@@ -87,6 +93,7 @@ class App extends React.Component {
             <details className="sign-modal">
               <summary className="modal-button">TOGGLE SIGN IN/SIGN UP</summary>
               <SignIn
+                currentUser={this.state.currentUser}
                 handleChange={this.handleChange}
                 signIn={this.signIn}
               ></SignIn>

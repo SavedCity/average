@@ -51,7 +51,7 @@ main {
   text-align: center;
   background: #029;
   color: white;
-  border-radius: 3px;
+  border-radius: 2px;
   margin-bottom: 10px;
   margin-top: 10px;
   font-family: yanone Kaffeesatz;
@@ -138,7 +138,7 @@ main {
 /* ======================== SIGN IN ================================== */
 
 .signin-title {
-  font-size: 20px;
+  font-size: 25px;
   margin: 35px 0 4px 0;
   text-align: center;
   color: #000;
@@ -150,7 +150,6 @@ main {
 
 .signin-inputs {
   height: 40px;
-  width: 100%;
   background: white;
   border-radius: 2px;
   font-family: teko;
@@ -186,6 +185,17 @@ main {
   display: flex;
   flex-direction: column;
   width: 100%;
+}
+
+.wrong-pass,
+.wrong-user {
+  text-align: center;
+  margin: 0 0 5px 0;
+  padding: 0;
+  color: red;
+  font-family: teko;
+  font-weight: 400;
+  font-size: 23px;
 }
 
 /* ================================= CONTENT ================================== */
@@ -347,7 +357,7 @@ main {
   text-align: center;
   background: #282828;
   color: white;
-  border-radius: 3px;
+  border-radius: 2px;
   /* margin-bottom: 8px; */
 }
 
