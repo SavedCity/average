@@ -12,11 +12,12 @@ class Comments extends React.Component {
               required
               onChange={this.props.handleChange}
             ></textarea>
-            <button
+            <input
               type='submit'
               className="comment-submit"
               onSubmit={this.props.addComment}
-            >Submit</button>
+              value="SUBMIT"
+            ></input>
           </div>
         </form>
       </div>

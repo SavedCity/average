@@ -43,9 +43,9 @@ class App extends React.Component {
   };
 
 updateStateForSubmit = (event) => {
-    console.log(event.target.nextSibling.firstChild.nextSibling.getAttribute('value'))
+    console.log(event.target.nextSibling.firstChild.value)
     this.setState({
-      author: event.target.nextSibling.firstChild.nextSibling.nextSibling.getAttribute('value'),
+      author: event.target.nextSibling.firstChild.value,
       image:
         event.target.nextSibling.firstChild.nextSibling.nextSibling.nextSibling
           .nextSibling.nextSibling.value,
@@ -71,7 +71,6 @@ updateStateForSubmit = (event) => {
 
   addComment = (event) => {
     event.preventDefault();
-    // event.currentTarget.reset();
     const id = event.target.articleId;
     axios.get("/posts/" + id, this.state).then((response) => {
     // console.log(response);
