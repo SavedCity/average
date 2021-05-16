@@ -195,11 +195,11 @@ class App extends React.Component {
                   updateLike={this.updateLike}
                 ></LikeButton>
 
-                <Comments
+                {/* <Comments
                   articleid={article._id}
                   handleChange={this.handleChange}
                   addComment={this.addComment}
-                ></Comments>
+                ></Comments> */}
 
                 <EditArticle
                   updateStateForSubmit={this.updateStateForSubmit}
