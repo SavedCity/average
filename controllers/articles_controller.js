@@ -1,6 +1,7 @@
 const express = require("express");
 const articles = express.Router();
 const Article = require("../models/articles-schema.js");
+const Comment = require("../models/comments-schema.js")
 
 articles.get("/", (req, res) => {
   Article.find({}, (err, foundArticles) => {
@@ -15,6 +16,16 @@ articles.post("/", (req, res) => {
     });
   });
 });
+
+articles.get("/:id", (req, res) => {
+  Article.findById(
+    req.params.id, (err, foundArticle) => {
+      foundArticle.comments.push(req.body.comment)
+      foundArticle.save()
+      res.json(foundArticle)
+    }
+  )
+})
 
 articles.put("/:id", (req, res) => {
   Article.findByIdAndUpdate(

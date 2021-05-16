@@ -20,6 +20,7 @@ users.post("/", (req, res) => {
   User.create(req.body, (err, createdUser) => {
     if (err) {
       console.log(err);
+      // res.send("username in use");
     } else {
       console.log("user is created: ", createdUser);
     }

@@ -12,8 +12,8 @@ const articleSchema = new mongoose.Schema(
     content: { type: String, required: true },
     length: Number,
     createdBy: String,
-    likes: [{ type: Number }],
-    comments: String,
+    likes: [{ type: Number }], // should be empty array
+    comments: [],
   },
   {
     timestamps: true,

@@ -8,6 +8,7 @@ class App extends React.Component {
     createdAt: undefined,
     likes: undefined,
     articles: [],
+    currentUser: {},
   };
 
   handleChange = (event) => {
@@ -30,16 +31,32 @@ class App extends React.Component {
 
   updateArticle = (event) => {
     event.preventDefault();
-    this.setState({ author: document.getElementById("edit-author").innerHTML });
     axios.put("/articles/" + event.target.id, this.state).then((response) => {
       this.setState({
         articles: response.data,
-        // author: "",
+        author: "",
         title: "",
         image: "",
         content: "",
         length: undefined,
       });
+    });
+  };
+
+  updateStateForSubmit = (event) => {
+    console.log(
+      event.target.parentElement.previousSibling.previousSibling.previousSibling
+        .firstChild.firstChild.firstChild.wholeText
+    );
+    this.setState({
+      author: (this.state.author =
+        event.target.parentElement.previousSibling.previousSibling.previousSibling.firstChild.firstChild.firstChild.wholeText),
+      title: (this.state.title =
+        event.target.parentElement.previousSibling.previousSibling.previousSibling.firstChild.firstChild.nextSibling.firstChild.wholeText),
+      image: (this.state.image =
+        event.target.parentElement.previousSibling.previousSibling.previousSibling.firstChild.nextSibling.firstChild.src),
+      content: (this.state.content =
+        event.target.parentElement.previousSibling.previousSibling.previousSibling.firstChild.firstChild.nextSibling.nextSibling.firstChild.wholeText),
     });
   };
 
@@ -69,43 +86,105 @@ class App extends React.Component {
     });
     // console.log(this.state.currentUser);
   };
+  signOut = (event) => {
+    // event.preventDefault();
+  };
+
+  addComment = (event) => {
+    event.preventDefault();
+    // event.currentTarget.reset();
+    const id = event.target.articleId;
+    axios.get("/posts/" + id, this.state).then((response) => {
+      // console.log(response);
+      this.setState({
+        comments: response.data,
+      });
+    });
+  };
 
   componentDidMount = () => {
     axios.get("/articles").then((response) => {
       this.setState({
         articles: response.data,
-        currentUser: {},
       });
     });
   };
-  // {this.state.currentUser.username !== {}} ? (
-  // <h1> Welcome {this.state.currentUser.username} </h1>) : null}
+
+  // navScroll = () => {
+  //   let nav = document.getElementsByClassName("nav");
+  //   window.onscroll = () => {
+  //     if (window.scrollY > 300) {
+  //       nav.addClass("scrolled");
+  //     } else {
+  //       nav.removeClass("scrolled");
+  //     }
+  //   };
+  // };
+
   render = () => {
     return (
       <div className="react-div-not-to-be-used">
         <div className="nav">
-          <img
-            className="top-logo-pic"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/OOjs_UI_icon_article-rtl-progressive.svg/1200px-OOjs_UI_icon_article-rtl-progressive.svg.png"
-          />
-          <h2 className="top-logo">Average</h2>
+          {this.state.currentUser !== {} &&
+          this.state.currentUser.gender === "Female" ? (
+            <div className="profile-div">
+              <h1 className="username">{this.state.currentUser.username}</h1>
+              <img
+                className="profile-picF"
+                src="https://icon-library.com/images/woman_1249851.png"
+                alt="female-photo"
+              />
+            </div>
+          ) : this.state.currentUser !== {} &&
+            this.state.currentUser.gender === "Male" ? (
+            <div className="profile-div">
+              <h1 className="username">{this.state.currentUser.username}</h1>
+              <img
+                className="profile-picM"
+                src="https://lh3.googleusercontent.com/proxy/bx_GbSIfKImwl8bgbYWevgPiUnekhfyZ4KN4AO1hLZ2kSPQVWODl0OkZQLy7Bhlv2J0tCFcgan3QqF6kg3fTqPpQxj7ljJ_0F0WW1gBEvPk"
+                alt="male-photo"
+              />
+            </div>
+          ) : null}
+
+          <div>
+            <h2 className="top-logo">
+              <img
+                className="top-logo-pic"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/OOjs_UI_icon_article-rtl-progressive.svg/1200px-OOjs_UI_icon_article-rtl-progressive.svg.png"
+              />
+              Average
+            </h2>
+          </div>
           <div className="loggin">
-            <details className="sign-modal">
-              <summary className="modal-button">TOGGLE SIGN IN/SIGN UP</summary>
-              <SignIn
-                currentUser={this.state.currentUser}
-                handleChange={this.handleChange}
-                signIn={this.signIn}
-              ></SignIn>
-              <SignUp></SignUp>
-            </details>
+            <CreateArticle
+              currentUser={this.state.currentUser}
+              handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit}
+            ></CreateArticle>
+
+            {this.state.currentUser.username ? (
+              <form onClick={this.signOut}>
+                <button className="sign-out" type="submit">
+                  <i className="fas fa-sign-out-alt"></i>
+                </button>
+              </form>
+            ) : (
+              <details className="sign-modal">
+                <summary className="modal-button">
+                  <i className="fas fa-sign-in-alt"></i>TOGGLE SIGN IN/SIGN UP
+                </summary>
+                <SignIn
+                  currentUser={this.state.currentUser}
+                  handleChange={this.handleChange}
+                  signIn={this.signIn}
+                ></SignIn>
+                <SignUp signUp={this.signUp}></SignUp>
+              </details>
+            )}
           </div>
         </div>
-        <h1> Post an article </h1>
-        <CreateArticle
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-        ></CreateArticle>
+
         <div className="main-container">
           {this.state.articles.map((article) => {
             return (
@@ -117,13 +196,23 @@ class App extends React.Component {
                   updateLike={this.updateLike}
                 ></LikeButton>
 
-                <Comments></Comments>
+                <Comments
+                  articleid={article._id}
+                  handleChange={this.handleChange}
+                  addComment={this.addComment}
+                ></Comments>
 
                 <EditArticle
+                  updateStateForSubmit={this.updateStateForSubmit}
                   deleteArticle={this.deleteArticle}
                   updateArticle={this.updateArticle}
                   handleChange={this.handleChange}
                   article={article}
+                  author={this.state.author}
+                  title={this.state.title}
+                  image={this.state.image}
+                  content={this.state.content}
+                  length={this.state.length}
                 ></EditArticle>
               </div>
             );

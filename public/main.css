@@ -13,35 +13,88 @@ main {
   width: 100%;
   left: 0;
   top: 0;
-  /* border: 2.5px solid #0003; */
-  box-shadow: 0 0 10px #0008;
+  border-bottom: 1px solid #000;
+  /* box-shadow: 0 0 10px #0008; */
   padding: 17px 0;
   /* height: 80px; */
 }
+/* .nav.scrolled {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  align-items: center;
+  background: #fff;
+  width: 100%;
+  left: 0;
+  top: 0;
+  border-bottom: 1px solid #000;
+  padding: 17px 0;
+} */
+
+.username {
+  font-family: khula;
+  font-size: 33px;
+  font-weight: 600;
+  margin-top: 30px;
+}
+
+.profile-div {
+  display: flex;
+  position: fixed;
+  left: 40px;
+  background: #0002;
+  padding: 0px 10px;
+  border-radius: 50px;
+  justify-content: center;
+  height: 68px;
+  align-content: center;
+  align-items: center;
+}
+
+.profile-picM {
+  width: 37px;
+  height: 37px;
+  margin-bottom: 2px;
+  margin-left: 7px;
+  background: #0003;
+  padding: 8px;
+  border-radius: 50px;
+}
+.profile-picF {
+  width: 37px;
+  height: 37px;
+  margin-bottom: 2px;
+  margin-left: 7px;
+  background: #0003;
+  padding: 8px;
+  border-radius: 50px;
+}
 
 .loggin {
-  /* top: 100px; */
-  /* background: #0007; */
   display: flex;
   justify-content: center;
   flex-direction: column;
-  /* padding: 50px; */
 }
 
 .top-logo {
   font-size: 45px;
   font-family: yeseva one;
   font-weight: 500;
-  margin: 0 100px 0 0;
+  margin: 0 0px 0px 0;
   color: #000;
 }
 
 .top-logo-pic {
-  margin: 0 0 8px 0;
+  margin: 0px 0 0px 0;
   width: 43px;
   transform: rotate(20deg);
   padding: 0;
+  transition: 0.7s ease-in-out;
 }
+.top-logo-pic:hover {
+  transform: rotate(380deg);
+}
+
 /* =============================== SIGN UP - SIGN IN MODAL =============================== */
 
 .modal-button {
@@ -78,6 +131,33 @@ main {
   width: 24%;
 }
 
+.fa-sign-in-alt {
+  margin-right: 10px;
+}
+
+/* =============================== SIGN OUT =============================== */
+
+.sign-out {
+  position: fixed;
+  cursor: pointer;
+  padding: 11px 13px 10px 13px;
+  text-align: center;
+  background: #a41e14;
+  color: white;
+  border-radius: 1.8px;
+  /* margin-bottom: 10px;
+  margin-top: 10px; */
+  font-family: yanone Kaffeesatz;
+  letter-spacing: 0.3px;
+  font-size: 20px;
+  right: 40px;
+  top: 23.2px;
+  border: none;
+}
+.sign-out:hover {
+  background: #941e14;
+}
+
 /* =============================== SIGN UP MODAL =============================== */
 
 .signup-title {
@@ -95,7 +175,7 @@ main {
 }
 
 .signup-title:hover {
-  background-color: #0007;
+  background-color: #282828;
   color: #fff;
 }
 .signup-div {
@@ -135,6 +215,13 @@ main {
   background: #000;
   color: white;
 }
+.gender-title {
+  font-size: 25px;
+  font-family: acme;
+  letter-spacing: 0px;
+  text-align: center;
+}
+
 /* ======================== SIGN IN ================================== */
 
 .signin-title {
@@ -196,6 +283,119 @@ main {
   font-family: teko;
   font-weight: 400;
   font-size: 23px;
+}
+
+/* ================================= POST ARTICLE MODAL ================================== */
+
+#warning-text {
+  position: fixed;
+  right: 430px;
+  top: 0px;
+  color: #900;
+  font-family: teko;
+  font-weight: 300;
+  font-size: 27px;
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+#open-post-modal-before:focus {
+  animation: shake 0.5s;
+  animation-iteration-count: 1;
+}
+
+#open-post-modal-before {
+  position: fixed;
+  right: 270px;
+  border: none;
+  background: #888;
+  color: white;
+  padding: 7px 10px 3px 10px;
+  border-radius: 1.8px;
+  /* cursor: pointer; */
+  font-size: 24px;
+  font-family: teko;
+  letter-spacing: 0.5px;
+  /* margin-left: 15px; */
+  top: 23px;
+}
+
+#open-post-modal {
+  position: fixed;
+  right: 100px;
+  border: none;
+  background: #029;
+  color: white;
+  padding: 7px 10px 3px 10px;
+  border-radius: 1.8px;
+  cursor: pointer;
+  font-size: 24px;
+  font-family: teko;
+  letter-spacing: 0.5px;
+  /* margin-left: 15px; */
+  top: 23px;
+}
+#open-post-modal:hover {
+  background: #027;
+}
+.fa-file-alt {
+  margin-right: 3px;
+}
+
+#post-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: #0004;
+}
+
+.post-modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close-post-modal {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-post-modal:hover,
+.close-post-modal:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /* ================================= CONTENT ================================== */
@@ -321,28 +521,19 @@ main {
 /* ======================== EDIT ARTICLE ================================== */
 
 .edit-details {
-  /* border: 2px solid #000; */
-  /* border-radius: 3px; */
-  /* padding: 2px 10px 0 10px; */
   margin: 20px;
   font-family: teko;
   font-size: 24px;
   font-weight: 100;
-  /* background: #028; */
   color: #fff;
 }
 
 .edit-details[open] {
-  /* position: fixed; */
   background: #fff;
   padding: 8% 30%;
   content: none;
   background: #f9ce00;
   color: #000;
-  /* left: 10px;
-  right: 10px;
-  top: 80px;
-  bottom: 0; */
 }
 
 .edit-details:hover {
@@ -358,7 +549,6 @@ main {
   background: #282828;
   color: white;
   border-radius: 2px;
-  /* margin-bottom: 8px; */
 }
 
 .edit-summary:hover {
@@ -415,11 +605,15 @@ input[type="number"]::inner-spin-button {
   appearance: none;
 }
 
+.fa-edit {
+  margin-right: 10px;
+}
+
 /* ======================== DELETE ARTICLE ================================== */
 
 .delete-btn {
   width: 100%;
-  height: 30px;
+  height: 36px;
   background: #ca291c;
   cursor: pointer;
   color: white;
@@ -427,9 +621,13 @@ input[type="number"]::inner-spin-button {
   border-radius: 2px;
   font-family: teko;
   font-size: 24px;
-  padding: 0px 10px 10px 10px;
+  padding: 3.5px 10px 5px 10px;
   margin-top: 5px;
 }
 .delete-btn:hover {
   background: #d32a22;
+}
+
+.fa-trash {
+  margin-right: 10px;
 }
