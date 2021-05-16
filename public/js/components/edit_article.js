@@ -2,7 +2,13 @@ class EditArticle extends React.Component {
   render() {
     return (
       <details className="edit-details">
-        <summary className="edit-summary"> TOGGLE MODIFY </summary>
+        <summary
+          className="edit-summary"
+          onClick={this.props.updateStateForSubmit}
+        >
+          <i className="fas fa-edit"></i>
+          TOGGLE MODIFY
+        </summary>
         <form id={this.props.article._id} onSubmit={this.props.updateArticle}>
           <input
             className="edit-inputs"
@@ -10,9 +16,8 @@ class EditArticle extends React.Component {
             placeholder="Author"
             type="text"
             id="author"
-            onChange={(event) => {
-              this.setState({ author: event.target.value });
-            }}
+            onChange={this.props.handleChange}
+            defaultValue={this.props.author}
           />
           <br />
 
@@ -23,6 +28,7 @@ class EditArticle extends React.Component {
             type="text"
             id="title"
             onChange={this.props.handleChange}
+            defaultValue={this.props.title}
           />
           <br />
 
@@ -32,6 +38,7 @@ class EditArticle extends React.Component {
             type="text"
             id="image"
             onChange={this.props.handleChange}
+            defaultValue={this.props.image}
           />
           <br />
 
@@ -42,6 +49,7 @@ class EditArticle extends React.Component {
             type="text"
             id="content"
             onChange={this.props.handleChange}
+            defaultValue={this.props.content}
           ></textarea>
 
           <input
@@ -51,18 +59,21 @@ class EditArticle extends React.Component {
             type="number"
             id="length"
             onChange={this.props.handleChange}
+            defaultValue={this.props.article.length}
             min="1"
             max="60"
           />
+
           <br />
 
-          <input className="save-edit" type="submit" value="SAVE" />
+          <input className="save-edit" type="submit" value="SAVE"></input>
         </form>
         <button
           className="delete-btn"
           onClick={this.props.deleteArticle}
           value={this.props.article._id}
         >
+          <i className="fas fa-trash"></i>
           REMOVE THIS ARTICLE
         </button>
       </details>
