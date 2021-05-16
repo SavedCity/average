@@ -24,6 +24,9 @@ class Articles extends React.Component {
             }
           />
         </div>
+        <div className="comments-div">
+          {this.props.article.comments}
+        </div>
       </div>
     );
   }
