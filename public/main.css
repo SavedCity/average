@@ -56,7 +56,7 @@ main {
   height: 37px;
   margin-bottom: 2px;
   margin-left: 7px;
-  background: #0003;
+  background: #8ec3e6;
   padding: 8px;
   border-radius: 50px;
 }
@@ -70,7 +70,7 @@ main {
   border-radius: 50px;
 }
 
-.loggin {
+.right-nav-div {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -97,7 +97,7 @@ main {
 
 /* =============================== SIGN UP - SIGN IN MODAL =============================== */
 
-.modal-button {
+/* .modal-button {
   list-style: none;
   cursor: pointer;
   padding: 13px 13px 10px 13px;
@@ -113,14 +113,14 @@ main {
 }
 .modal-button:hover {
   background: #027;
-}
-
+} */
+/*
 .sign-modal {
   position: fixed;
   right: 40px;
-}
+} */
 
-.sign-modal[open] {
+/* .sign-modal[open] {
   position: absolute;
   padding: 1% 5% 1% 5%;
   background: #ddd;
@@ -129,10 +129,42 @@ main {
   border-radius: 5px;
   box-shadow: 0 0 10px #0009;
   width: 24%;
-}
+} */
+
+/* .fa-sign-in-alt {
+  margin-right: 10px;
+} */
 
 .fa-sign-in-alt {
-  margin-right: 10px;
+  position: fixed;
+  right: 50px;
+  top: 23px;
+  font-size: 40px;
+  cursor: pointer;
+  color: #039;
+}
+
+.menu {
+  /* display: none; */
+  background: #ddd;
+  position: fixed;
+  right: -900px;
+  height: 70%;
+  width: 25%;
+  /* top: 80px; */
+  padding: 20px 100px 50px 100px;
+  /* border: 1px solid; */
+  transition: 1s;
+  z-index: 1;
+}
+.menu.toggle-open {
+  /* display: block; */
+  /* width: 90%; */
+  right: 0px;
+  overflow: auto;
+  background-color: #039;
+  overflow-y: auto;
+  border-radius: 2px;
 }
 
 /* =============================== SIGN OUT =============================== */
@@ -164,19 +196,20 @@ main {
   font-size: 20px;
   margin: 35px 0 14px 0;
   text-align: center;
-  color: #000;
+  color: #fff;
   font-family: acme;
-  background: #0001;
+  background: #0003;
   list-style: none;
   cursor: pointer;
   border-radius: 3px;
   padding: 6px 0;
-  border: 1.2px solid;
+  border: 1.2px solid #0000;
 }
 
 .signup-title:hover {
-  background-color: #282828;
+  background-color: #0009;
   color: #fff;
+  border: 1.2px solid;
 }
 .signup-div {
   display: flex;
@@ -200,8 +233,8 @@ main {
 }
 .signup-submit {
   height: 30px;
-  background: #f9ce00;
-  color: #000;
+  background: #000;
+  color: #fff;
   border: none;
   border-radius: 2px;
   font-size: 20px;
@@ -212,7 +245,7 @@ main {
   margin-bottom: 20px;
 }
 .signup-submit:hover {
-  background: #000;
+  background: #282828;
   color: white;
 }
 .gender-title {
@@ -228,7 +261,7 @@ main {
   font-size: 25px;
   margin: 35px 0 4px 0;
   text-align: center;
-  color: #000;
+  color: #fff;
   font-family: acme;
   list-style: none;
   border-radius: 3px;
@@ -252,9 +285,9 @@ main {
 }
 .signin-button {
   height: 30px;
-  background: #029;
-  color: #fff;
-  border: none;
+  background: #ffe749;
+  color: #000;
+  border: 1px solid #000;
   border-radius: 2px;
   font-size: 20px;
   cursor: pointer;
@@ -264,8 +297,8 @@ main {
   margin-bottom: 20px;
 }
 .signin-button:hover {
-  background: #000;
-  color: white;
+  background: #ffcc0d;
+  color: #000;
 }
 
 .signin-container {
@@ -441,7 +474,8 @@ main {
   background-size: cover;
   background-position: center;
   border-radius: 2px;
-  margin-left: 0;
+  margin-left: 20px;
+  max-width: 300px;
 }
 
 .author {

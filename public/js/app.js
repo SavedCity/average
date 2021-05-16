@@ -156,36 +156,33 @@ class App extends React.Component {
               Average
             </h2>
           </div>
-          <div className="loggin">
+          <div className="right-nav-div">
             <CreateArticle
               currentUser={this.state.currentUser}
               handleChange={this.handleChange}
               handleSubmit={this.handleSubmit}
             ></CreateArticle>
-
-            {this.state.currentUser.username ? (
-              <form onClick={this.signOut}>
-                <button className="sign-out" type="submit">
-                  <i className="fas fa-sign-out-alt"></i>
-                </button>
-              </form>
-            ) : (
-              <details className="sign-modal">
-                <summary className="modal-button">
-                  <i className="fas fa-sign-in-alt"></i>TOGGLE SIGN IN/SIGN UP
-                </summary>
-                <SignIn
-                  currentUser={this.state.currentUser}
-                  handleChange={this.handleChange}
-                  signIn={this.signIn}
-                ></SignIn>
-                <SignUp signUp={this.signUp}></SignUp>
-              </details>
-            )}
           </div>
         </div>
 
         <div className="main-container">
+          {this.state.currentUser.username ? (
+            <form onClick={this.signOut}>
+              <button className="sign-out" type="submit">
+                <i className="fas fa-sign-out-alt"></i>
+              </button>
+            </form>
+          ) : (
+            <div className="sign-modal">
+              <SignIn
+                currentUser={this.state.currentUser}
+                handleChange={this.handleChange}
+                signIn={this.signIn}
+                signUp={this.signUp}
+              ></SignIn>
+            </div>
+          )}
+
           {this.state.articles.map((article) => {
             return (
               <div key={article._id} className="content-container">
