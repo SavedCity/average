@@ -18,8 +18,12 @@ users.post("/", (req, res) => {
     bcrypt.genSaltSync(10)
   );
   User.create(req.body, (err, createdUser) => {
-    console.log("user is created: ", createdUser);
-    res.redirect("/");
+    if (err) {
+      console.log(err);
+      // res.send("username in use");
+    } else {
+      console.log("user is created: ", createdUser);
+    }
   });
 });
 
