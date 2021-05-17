@@ -200,11 +200,11 @@ class App extends React.Component {
                   updateLike={this.updateLike}
                 ></LikeButton>
 
-                {/* <Comments
+                <Comments
                   articleid={article._id}
                   handleChange={this.handleChange}
                   addComment={this.addComment}
-                ></Comments> */}
+                ></Comments>
 
                 {this.state.currentUser.username &&
                 this.state.currentUser.username === article.author ? (
