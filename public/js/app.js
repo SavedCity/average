@@ -207,7 +207,8 @@ class App extends React.Component {
                   addComment={this.addComment}
                 ></Comments>
 
-                {this.state.currentUser.username ? (
+                {this.state.currentUser.username &&
+                this.state.currentUser.username === article.author ? (
                   <EditArticle
                     updateStateForSubmit={this.updateStateForSubmit}
                     deleteArticle={this.deleteArticle}
