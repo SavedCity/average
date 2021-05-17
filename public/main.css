@@ -807,6 +807,7 @@ input[type="number"]::inner-spin-button {
   padding: 10px 20% 30px 20%;
   border-radius: 2px;
   overflow: auto;
+  width: 60%;
 }
 .fa-readme {
   margin-right: 10px;
@@ -877,4 +878,92 @@ input[type="number"]::inner-spin-button {
 
 .fa-trash {
   margin-right: 10px;
+}
+
+/* ================================ FOOTER ========================================== */
+
+.foot {
+  margin: 30px 0;
+  background-color: #0003;
+  /* border-radius: 8px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  /* flex-direction: column; */
+  padding: 20px 0 30px 0;
+  /* border-top: 1px solid #000; */
+}
+
+.line {
+  background: #0004;
+  width: 2px;
+  height: 90px;
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+  margin-right: 20px;
+  margin-left: 160px;
+}
+.social-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+  margin-left: 20px;
+  margin-right: 160px;
+}
+
+.tag {
+  margin-left: 20px;
+  margin-right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.foot-links {
+  text-decoration: none;
+  color: #0009;
+  font-size: 18px;
+  font-family: asap condensed;
+  margin-bottom: 3px;
+}
+
+.fa-github,
+.fa-linkedin {
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.bottom-logo {
+  font-family: Yeseva One;
+  font-size: 24px;
+  color: #0009;
+  /* margin-bottom: 6px; */
+}
+.bottom-logo-pic {
+  margin: 0px 0 0px 0;
+  width: 24px;
+  /* transform: rotate(20deg); */
+  padding: 0;
+  /* transition: 0.7s ease-in-out; */
+  opacity: 0.7;
+}
+
+.name {
+  margin-bottom: 10px;
+  font-family: asap condensed;
+  font-weight: 400;
+  /* text-decoration: underline; */
+  color: #0006;
+  font-size: 20px;
+  /* border-bottom: 1px solid #0006; */
 }

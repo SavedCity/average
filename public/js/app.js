@@ -225,6 +225,7 @@ class App extends React.Component {
             );
           })}
         </div>
+        <Footer></Footer>
       </div>
     );
   };
