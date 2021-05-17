@@ -97,7 +97,6 @@ class App extends React.Component {
 
   addComment = (event) => {
     event.preventDefault();
-    // event.currentTarget.reset();
     const id = event.target.articleId;
     axios.get("/posts/" + id, this.state).then((response) => {
       // console.log(response);
@@ -201,11 +200,11 @@ class App extends React.Component {
                   updateLike={this.updateLike}
                 ></LikeButton>
 
-                <Comments
+                {/* <Comments
                   articleid={article._id}
                   handleChange={this.handleChange}
                   addComment={this.addComment}
-                ></Comments>
+                ></Comments> */}
 
                 {this.state.currentUser.username &&
                 this.state.currentUser.username === article.author ? (
