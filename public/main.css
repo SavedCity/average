@@ -32,10 +32,11 @@ main {
 } */
 
 .username {
-  font-family: khula;
-  font-size: 33px;
-  font-weight: 600;
-  margin-top: 30px;
+  font-family: asap condensed;
+  font-size: 28px;
+  font-weight: 500;
+  margin-top: 14px;
+  letter-spacing: 0.6px;
 }
 
 .profile-div {
@@ -46,23 +47,23 @@ main {
   padding: 0px 10px;
   border-radius: 50px;
   justify-content: center;
-  height: 68px;
+  height: 65px;
   align-content: center;
   align-items: center;
 }
 
 .profile-picM {
-  width: 37px;
-  height: 37px;
+  width: 30px;
+  height: 30px;
   margin-bottom: 2px;
   margin-left: 7px;
-  background: #8ec3e6;
+  background: #0003;
   padding: 8px;
   border-radius: 50px;
 }
 .profile-picF {
-  width: 37px;
-  height: 37px;
+  width: 30px;
+  height: 30px;
   margin-bottom: 2px;
   margin-left: 7px;
   background: #0003;
@@ -135,36 +136,48 @@ main {
   margin-right: 10px;
 } */
 
-.fa-sign-in-alt {
+.sign-in {
   position: fixed;
   right: 50px;
-  top: 23px;
-  font-size: 40px;
+  top: 12px;
+  font-size: 20px;
   cursor: pointer;
-  color: #039;
+  color: #fff;
+  background: #039;
+  padding: 6px 10px 4px 10px;
+  border-radius: 2px;
+  font-family: teko;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+}
+
+.sign-in:hover {
+  background: #027;
 }
 
 .menu {
   /* display: none; */
-  background: #ddd;
+  background: #555;
   position: fixed;
-  right: -900px;
-  height: 70%;
+  top: 1000px;
+  right: 0;
+  /* height: 50%; */
   width: 25%;
   /* top: 80px; */
   padding: 20px 100px 50px 100px;
   /* border: 1px solid; */
-  transition: 1s;
+  transition: 0.6s;
   z-index: 1;
 }
 .menu.toggle-open {
   /* display: block; */
   /* width: 90%; */
-  right: 0px;
+  top: 100px;
   overflow: auto;
-  background-color: #039;
+  background-color: #169;
   overflow-y: auto;
   border-radius: 2px;
+  box-shadow: -3px 3px 15px #0009;
 }
 
 /* =============================== SIGN OUT =============================== */
@@ -182,7 +195,7 @@ main {
   font-family: yanone Kaffeesatz;
   letter-spacing: 0.3px;
   font-size: 20px;
-  right: 40px;
+  right: 70px;
   top: 23.2px;
   border: none;
 }
@@ -245,8 +258,8 @@ main {
   margin-bottom: 20px;
 }
 .signup-submit:hover {
-  background: #282828;
-  color: white;
+  background: #a8ffe5;
+  color: #000;
 }
 .gender-title {
   font-size: 25px;
@@ -285,9 +298,9 @@ main {
 }
 .signin-button {
   height: 30px;
-  background: #ffe749;
-  color: #000;
-  border: 1px solid #000;
+  background: #181818;
+  color: #fff;
+  border: none;
   border-radius: 2px;
   font-size: 20px;
   cursor: pointer;
@@ -297,7 +310,7 @@ main {
   margin-bottom: 20px;
 }
 .signin-button:hover {
-  background: #ffcc0d;
+  background: #88e6e3;
   color: #000;
 }
 
@@ -322,7 +335,7 @@ main {
 
 #warning-text {
   position: fixed;
-  right: 430px;
+  right: 330px;
   top: 0px;
   color: #900;
   font-family: teko;
@@ -360,7 +373,7 @@ main {
 
 #open-post-modal-before {
   position: fixed;
-  right: 270px;
+  right: 160px;
   border: none;
   background: #888;
   color: white;
@@ -372,11 +385,12 @@ main {
   letter-spacing: 0.5px;
   /* margin-left: 15px; */
   top: 23px;
+  cursor: pointer;
 }
 
 #open-post-modal {
   position: fixed;
-  right: 100px;
+  right: 160px;
   border: none;
   background: #029;
   color: white;
@@ -406,29 +420,108 @@ main {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background: #0004;
+  background: #0008;
 }
 
 .post-modal-content {
-  background-color: #fefefe;
+  background-color: #aed5e2;
   margin: auto;
   padding: 20px;
-  border: 1px solid #888;
+  border: 1px solid #000;
   width: 80%;
+  border-radius: 4px;
 }
 
 .close-post-modal {
-  color: #aaaaaa;
+  color: #000;
   float: right;
   font-size: 28px;
-  font-weight: bold;
+  border: none;
+  background: #0004;
+  border-radius: 2.3px;
+  padding: 5px 10px 2px 10px;
+  transition: 0.3s ease-in-out;
 }
 
 .close-post-modal:hover,
 .close-post-modal:focus {
-  color: #000;
-  text-decoration: none;
+  color: #fff;
   cursor: pointer;
+  background: #000;
+}
+
+.content-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.post-title {
+  font-family: asap condensed;
+  letter-spacing: 0.4px;
+}
+.author-hidden {
+  /* display: none; */
+}
+.post-input {
+  width: 50%;
+  height: 40px;
+  font-size: 23px;
+  font-family: teko;
+  border: 1.8px solid #0004;
+  background: #fff6;
+  color: #000;
+  border-radius: 2px;
+  outline-color: black;
+  letter-spacing: 1px;
+}
+.post-input-content {
+  width: 50%;
+  height: 100px;
+  max-height: 270px;
+  min-height: 100px;
+  resize: vertical;
+  font-size: 23px;
+  font-family: teko;
+  border: 1.8px solid #0004;
+  background: #fff6;
+  color: #000;
+  border-radius: 2px;
+  outline-color: black;
+  letter-spacing: 1px;
+}
+
+.post-input::placeholder {
+  color: #0009;
+}
+
+.post-input-content::placeholder {
+  color: #0009;
+}
+
+.post-input:hover {
+  border: 1.8px solid #000;
+}
+
+.post-input-content:hover {
+  border: 1.8px solid #000;
+}
+
+.post-submit {
+  width: 20%;
+  font-size: 23px;
+  font-family: asap condensed;
+  font-weight: 600;
+  background: #038;
+  color: #fff;
+  border: none;
+  padding: 10px 0;
+  border-radius: 1px;
+  cursor: pointer;
+}
+.post-submit:hover {
+  background: #03b;
 }
 
 /* ================================= CONTENT ================================== */
@@ -449,6 +542,7 @@ main {
   margin: 15px;
   /* background: #deeae368; */
   padding: 10px;
+  /* border-bottom: 1px solid; */
 }
 
 .article-div {
@@ -458,6 +552,8 @@ main {
   align-items: center;
   align-content: center;
   margin: 10px;
+
+  border-bottom: 1px solid;
 }
 .info-div {
   margin-right: 10px;
@@ -467,6 +563,7 @@ main {
   flex-direction: column;
   /* align-items: flex-end; */
   /* align-self: flex-end; */
+  /* border-bottom: 1px solid; */
 }
 .img {
   width: 80%;
@@ -493,14 +590,38 @@ main {
   font-family: teko;
   font-weight: 500;
 }
+.author-in {
+  font-size: 23px;
+  margin-bottom: 15px;
+  color: #048;
+  /* text-shadow: 1px 1px 2px #0004; */
+  font-family: Yanone Kaffeesatz;
+  font-weight: 400;
+  background: #fff;
+  padding: 10px 0;
+  border-radius: 2px;
+}
+.title-in {
+  font-size: 30px;
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-family: teko;
+  font-weight: 500;
+  color: #ccc;
+  border-bottom: 2px solid;
+}
 .content {
   font-size: 25px;
-  color: #0009;
+  color: #fff;
   margin-top: 5px;
   font-family: yanone Kaffeesatz;
   font-weight: 500;
-  letter-spacing: 0.7px;
+  letter-spacing: 1.2px;
+  /* display: none; */
+  text-align: center;
+  width: 100%;
 }
+
 .read-length {
   font-size: 17px;
   margin-top: 0;
@@ -529,6 +650,7 @@ main {
   border: 2px solid #0008;
   margin: 0;
   outline-color: black;
+  display: none;
 }
 .comment-input:hover {
   border: 2px solid #000;
@@ -546,6 +668,7 @@ main {
   font-size: 23px;
   background: #0489;
   color: #fff;
+  display: none;
 }
 .comment-submit:hover {
   background: #048;
@@ -641,6 +764,97 @@ input[type="number"]::inner-spin-button {
 
 .fa-edit {
   margin-right: 10px;
+}
+
+/* ========================== READ ARTICLE  ================================== */
+#read-button {
+  border: none;
+  background: none;
+  font-size: 35px;
+  color: #029;
+  /* cursor: pointer; */
+  width: 50px;
+  height: 40px;
+  margin-bottom: 10px;
+  transition: 0.6s ease-in-out;
+  display: none;
+}
+#read-button-details {
+  border: none;
+  background: none;
+  font-size: 35px;
+  color: #029;
+  cursor: pointer;
+  width: 50px;
+  height: 40px;
+  margin-bottom: 10px;
+  transition: 0.6s ease-in-out;
+  list-style: none;
+  background: #fff;
+  border-radius: 3px;
+  padding: 6px 0 0 9px;
+}
+#read-button-details:hover {
+  transform: rotateX(360deg);
+}
+#open-read[open] {
+  /* background-color: #0006; */
+  position: absolute;
+  background: #282828;
+  top: 90px;
+  left: 0%;
+  height: 85%;
+  text-align: center;
+  padding: 10px 20% 30px 20%;
+  border-radius: 2px;
+  overflow: auto;
+}
+.fa-readme {
+  margin-right: 10px;
+}
+
+.read-button-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin-left: 74px; */
+}
+.modal-div {
+  display: none;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.read-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close-read-modal {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-read-modal:hover,
+.close-read-modal:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /* ======================== DELETE ARTICLE ================================== */

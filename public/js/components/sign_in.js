@@ -2,11 +2,16 @@ class SignIn extends React.Component {
   toggleClass = () => {
     document.querySelector(".menu").classList.toggle("toggle-open");
   };
+
+  // closeSignIn = () => {
+  //   document.getElementsByClassName("sign-in").innerHTML = "close";
+  // };
+
   render() {
     return (
       <div>
         <div onClick={this.toggleClass} className="open-menu">
-          <i class="fas fa-sign-in-alt"></i>
+          <h1 className="sign-in">SIGN IN</h1>
         </div>
         <div className="menu">
           <h2 className="signin-title"> SIGN IN </h2>

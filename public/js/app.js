@@ -7,6 +7,7 @@ class App extends React.Component {
     length: undefined,
     createdAt: undefined,
     likes: undefined,
+    createdBy: "",
     articles: [],
     currentUser: {},
   };
@@ -17,6 +18,7 @@ class App extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    document.querySelector("form").reset();
     axios.post("/articles", this.state).then((response) => {
       this.setState({
         articles: response.data,
@@ -24,6 +26,7 @@ class App extends React.Component {
         title: "",
         image: "",
         content: "",
+        createdBy: "",
         length: undefined,
       });
     });
@@ -46,7 +49,7 @@ class App extends React.Component {
   updateStateForSubmit = (event) => {
     console.log(
       event.target.parentElement.previousSibling.previousSibling.previousSibling
-        .firstChild.firstChild.firstChild.wholeText
+        .firstChild.nextSibling.firstChild.src
     );
     this.setState({
       author: (this.state.author =
@@ -56,7 +59,7 @@ class App extends React.Component {
       image: (this.state.image =
         event.target.parentElement.previousSibling.previousSibling.previousSibling.firstChild.nextSibling.firstChild.src),
       content: (this.state.content =
-        event.target.parentElement.previousSibling.previousSibling.previousSibling.firstChild.firstChild.nextSibling.nextSibling.firstChild.wholeText),
+        event.target.parentElement.previousSibling.previousSibling.previousSibling.firstChild.firstChild.nextSibling.nextSibling.nextSibling.firstChild.nextSibling.nextSibling.nextSibling.firstChild.wholeText),
     });
   };
 
@@ -70,6 +73,7 @@ class App extends React.Component {
 
   signIn = (event) => {
     event.preventDefault();
+    document.querySelector("form").reset();
     axios.post("/sessions", this.state).then((response) => {
       this.setState({
         currentUser: response.data,
@@ -79,6 +83,7 @@ class App extends React.Component {
   };
   signUp = (event) => {
     event.preventDefault();
+    document.querySelector("form").reset();
     axios.post("/users", this.state).then((response) => {
       this.setState({
         currentUser: response.data,
@@ -186,7 +191,10 @@ class App extends React.Component {
           {this.state.articles.map((article) => {
             return (
               <div key={article._id} className="content-container">
-                <Articles article={article}></Articles>
+                <Articles
+                  articles={this.state.articles}
+                  article={article}
+                ></Articles>
 
                 <LikeButton
                   article={article}
@@ -199,18 +207,20 @@ class App extends React.Component {
                   addComment={this.addComment}
                 ></Comments>
 
-                <EditArticle
-                  updateStateForSubmit={this.updateStateForSubmit}
-                  deleteArticle={this.deleteArticle}
-                  updateArticle={this.updateArticle}
-                  handleChange={this.handleChange}
-                  article={article}
-                  author={this.state.author}
-                  title={this.state.title}
-                  image={this.state.image}
-                  content={this.state.content}
-                  length={this.state.length}
-                ></EditArticle>
+                {this.state.currentUser.username ? (
+                  <EditArticle
+                    updateStateForSubmit={this.updateStateForSubmit}
+                    deleteArticle={this.deleteArticle}
+                    updateArticle={this.updateArticle}
+                    handleChange={this.handleChange}
+                    article={article}
+                    author={this.state.author}
+                    title={this.state.title}
+                    image={this.state.image}
+                    content={this.state.content}
+                    length={this.state.length}
+                  ></EditArticle>
+                ) : null}
               </div>
             );
           })}
