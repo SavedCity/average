@@ -87,7 +87,7 @@ class App extends React.Component {
     // console.log(this.state.currentUser);
   };
   signOut = (event) => {
-    // event.preventDefault();
+    event.preventDefault();
   };
 
   addComment = (event) => {
@@ -163,7 +163,7 @@ class App extends React.Component {
             ></CreateArticle>
 
             {this.state.currentUser.username ? (
-              <form onClick={this.signOut}>
+              <form >
                 <button className="sign-out" type="submit">
                   <i className="fas fa-sign-out-alt"></i>
                 </button>
