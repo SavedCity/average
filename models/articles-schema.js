@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const articleSchema = new mongoose.Schema(
   {
-    author: { type: String, required: true },
+    author: { type: String },
     image: {
       type: String,
       default:
