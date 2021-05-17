@@ -31,59 +31,64 @@ class CreateArticle extends React.Component {
           <form onSubmit={this.props.handleSubmit}>
             <div className="post-modal-content">
               <button onClick={this.close} className="close-post-modal">
-                CLOSE
+                <i className="fas fa-times"></i>
               </button>
-              POST ARTICLE
-              <input
-                required
-                placeholder="Author"
-                type="text"
-                id="author"
-                onChange={this.props.handleChange}
-                className="post-input"
-              />
-              <br />
-              <input
-                required
-                placeholder="TITLE (35-70 CHARS)"
-                type="text"
-                id="title"
-                onChange={this.props.handleChange}
-                pattern="[A-Za-z0-9\s\W+]{35,70}"
-                className="post-input"
-              />
-              <br />
-              <input
-                placeholder="Image"
-                type="text"
-                id="image"
-                onChange={this.props.handleChange}
-                className="post-input"
-              />
-              <br />
-              <textarea
-                required
-                placeholder="ARTICLE CONTENT"
-                type="text"
-                id="content"
-                onChange={this.props.handleChange}
-                pattern="[A-Za-z0-9\s\W+]{35,70}"
-                className="post-input-content"
-              ></textarea>
-              <br />
-              <label htmlFor="length">Read Length </label>
-              <input
-                required
-                placeholder="4"
-                type="number"
-                id="length"
-                onChange={this.props.handleChange}
-                min="1"
-                max="60"
-                className="post-input"
-              />
-              <br />
-              <input type="submit" value="POST ARTICLE" />
+              <div className="content-div">
+                <h1 className="post-title">POST AN ARTICLE</h1>
+                <input
+                  type="text"
+                  id="author"
+                  onChange={this.props.handleChange}
+                  className="post-input"
+                  placeholder={this.props.currentUser.username}
+                />
+                <br />
+                <input
+                  required
+                  placeholder="TITLE (35-70 CHARS)"
+                  type="text"
+                  id="title"
+                  onChange={this.props.handleChange}
+                  pattern="[A-Za-z0-9\s\W+]{35,70}"
+                  className="post-input"
+                />
+                <br />
+                <input
+                  placeholder="Image"
+                  type="text"
+                  id="image"
+                  onChange={this.props.handleChange}
+                  className="post-input"
+                />
+                <br />
+                <textarea
+                  required
+                  placeholder="ARTICLE CONTENT"
+                  type="text"
+                  id="content"
+                  onChange={this.props.handleChange}
+                  pattern="[A-Za-z0-9\s\W+]{35,70}"
+                  className="post-input-content"
+                ></textarea>
+                <br />
+
+                <input
+                  required
+                  placeholder="READ LENGTH (IN MINS, MAX 60)"
+                  type="number"
+                  id="length"
+                  onChange={this.props.handleChange}
+                  min="1"
+                  max="60"
+                  className="post-input"
+                />
+                <br />
+                <input
+                  className="post-submit"
+                  type="submit"
+                  value="POST ARTICLE"
+                />
+              </div>
             </div>
           </form>
         </div>
